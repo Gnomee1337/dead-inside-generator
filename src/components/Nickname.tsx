@@ -17,7 +17,7 @@ function GetRandomQuote(): string {
 }
 
 function Nickname() {
-  const [newNickname, getNewNickname] = useState("Мама...");
+  const [newNickname, getNewNickname] = useState("Мама");
   const [newQuote, getNewQuote] = useState("я уебище");
   return (
     <div className="md:px-12 p-4 max-w-screen-2xl mx-auto mt-20 " id="nickname">

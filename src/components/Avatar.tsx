@@ -24,9 +24,10 @@ function Avatar() {
           <div className="grid justify-items-center">
             <img
               src={newAvatar}
-              className="rounded-lg h-80 items-center py-6"
+              alt=""
+              className="rounded-full h-96 items-center"
             />
-            <div className="space-x-5 space-y-4">
+            <div className="space-x-5 space-y-4 py-6">
               <button
                 className="btnPrimary"
                 onClick={() => getNewAvatar((newAvatar) => GetRandomAvatar())}

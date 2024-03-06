@@ -7,7 +7,7 @@ function Footer() {
           href="/"
           className="text-2xl font-semibold flex items-center justify-center space-x-3 text-white"
         >
-          1000-7
+          Предложить ник
         </a>
       </div>
     </div>
