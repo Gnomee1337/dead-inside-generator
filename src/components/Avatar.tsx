@@ -1,7 +1,8 @@
 import { useState } from "react";
-import banner from "../assets/banner.png";
+// import banner from "../assets/banner.png";
 // import Banner from "../shared/Banner";
 import avatars_array from "../data/avatars.json";
+import { useTranslation } from "react-i18next";
 
 function GetRandomAvatar(): string {
   const avatar =
@@ -13,6 +14,12 @@ function GetRandomAvatar(): string {
 }
 
 function Avatar() {
+  const { i18n, t } = useTranslation();
+  const onChangeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const lang_code = e.target.value;
+    i18n.changeLanguage(lang_code);
+  };
+
   const [newAvatar, getNewAvatar] = useState(
     "https://i.pinimg.com/564x/46/07/05/460705552aaa8c68126a2d341b7bfbe1.jpg"
   );
@@ -32,7 +39,7 @@ function Avatar() {
                 className="btnPrimary"
                 onClick={() => getNewAvatar((newAvatar) => GetRandomAvatar())}
               >
-                {"Generate Image"}
+                {t("GenerateAvatar")}
               </button>
             </div>
           </div>

@@ -1,13 +1,22 @@
 import { useState } from "react";
 import logo from "../assets/logo.jpg";
-import { GrLanguage } from "react-icons/gr";
+//import { GrLanguage } from "react-icons/gr";
 import { FaXmark, FaBars } from "react-icons/fa6";
+import { LANGUAGES } from "../constants";
+import { useTranslation } from "react-i18next";
 
 function NavBar() {
+  const { i18n, t } = useTranslation();
+  const onChangeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const lang_code = e.target.value;
+    i18n.changeLanguage(lang_code);
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   const navItems = [
     {
       link: "Nickname",
@@ -22,6 +31,7 @@ function NavBar() {
       path: "codex",
     },
   ];
+
   return (
     <>
       <nav className="bg-[#be1212] md:px-14 p-4 max-w-screen-2xl border-b border-black mx-auto text-primary fixed top-0 right-0 left-0 rounded-b-lg">
@@ -45,9 +55,9 @@ function NavBar() {
                 <a
                   key={link}
                   href={path}
-                  className="block hover:text-[#f5f3f4]"
+                  className="block hover:text-secondary"
                 >
-                  {link}
+                  {t(link)}
                 </a>
               ))}
             </ul>
@@ -61,6 +71,24 @@ function NavBar() {
               <GrLanguage className="mr-2" /> <span>Language</span>
             </a>
           </div> */}
+          <div className="space-x-12 hidden md:flex items-center ">
+            <select
+              id="language-menu"
+              defaultValue={i18n.language}
+              onChange={onChangeLang}
+              className="gradientBg hidden lg:flex items-center hover:text-secondary rounded-lg border border-black"
+            >
+              {LANGUAGES.map(({ code, label }) => (
+                <option
+                  key={code}
+                  value={code}
+                  className="bg-black text-white text-center"
+                >
+                  {label}
+                </option>
+              ))}
+            </select>
+          </div>
 
           {/* Mobile menu-btn */}
           <div className="md:hidden">

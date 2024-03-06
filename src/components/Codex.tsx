@@ -15,7 +15,7 @@ function Codex() {
           </p>
           <a
             href="https://steamcommunity.com/sharedfiles/filedetails/?id=1740754032"
-            className="text-gray-100 hover:text-blue-800 hover:underline capitalize"
+            className="text-gray-100 hover:text-blue-600 hover:underline capitalize"
             title="Источник"
           >
             Источник
