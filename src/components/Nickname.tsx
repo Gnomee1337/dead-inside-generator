@@ -1,5 +1,5 @@
 import { useState } from "react";
-import banner from "../assets/banner.png";
+// import banner from "../assets/banner.png";
 // import Banner from "../shared/Banner";
 import nicknames_array from "../data/nicknames.json";
 import quotes_array from "../data/quotes.json";
@@ -18,11 +18,7 @@ function GetRandomQuote(): string {
 }
 
 function Nickname() {
-  const { i18n, t } = useTranslation();
-  const onChangeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const lang_code = e.target.value;
-    i18n.changeLanguage(lang_code);
-  };
+  const { t } = useTranslation();
 
   const [newNickname, getNewNickname] = useState("Мама");
   const [newQuote, getNewQuote] = useState("я уебище");
@@ -33,18 +29,18 @@ function Nickname() {
           {/* Banner content */}
           {/* <div className="md:w-3/5 "> */}
           <div className="grid justify-items-center">
-            <h2 className="md:text-7xl text-4xl font-bold text-white mb-6 leading-relaxed text-center">
+            <h2 className="md:text-7xl text-4xl font-bold text-white mb-6 leading-relaxed text-center select-all">
               {newNickname}
             </h2>
-            <p className="text-[#EBEBEB] text-2xl mb-8 text-center">
+            <p className="text-[#EBEBEB] text-2xl mb-8 text-center select-all">
               {newQuote}
             </p>
             <div className="space-x-5 space-y-4">
               <button
-                className="btnPrimary"
+                className="btnPrimary "
                 onClick={() => {
-                  getNewNickname((newNickname) => GetRandomNickname());
-                  getNewQuote((newQuote) => GetRandomQuote());
+                  getNewNickname(() => GetRandomNickname());
+                  getNewQuote(() => GetRandomQuote());
                 }}
               >
                 {t("GenerateNickname")}

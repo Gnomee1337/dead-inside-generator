@@ -14,11 +14,7 @@ function GetRandomAvatar(): string {
 }
 
 function Avatar() {
-  const { i18n, t } = useTranslation();
-  const onChangeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const lang_code = e.target.value;
-    i18n.changeLanguage(lang_code);
-  };
+  const { t } = useTranslation();
 
   const [newAvatar, getNewAvatar] = useState(
     "https://i.pinimg.com/564x/46/07/05/460705552aaa8c68126a2d341b7bfbe1.jpg"
@@ -37,7 +33,7 @@ function Avatar() {
             <div className="space-x-5 space-y-4 py-6">
               <button
                 className="btnPrimary"
-                onClick={() => getNewAvatar((newAvatar) => GetRandomAvatar())}
+                onClick={() => getNewAvatar(() => GetRandomAvatar())}
               >
                 {t("GenerateAvatar")}
               </button>

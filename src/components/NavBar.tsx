@@ -47,7 +47,7 @@ function NavBar() {
                 alt=""
                 className="rounded-lg inline-block w-10 items-center"
               />
-              <span>Dead Inside Factory</span>
+              <span className="animate-pulse">Dead Inside Generator</span>
             </a>
             {/* nav-items */}
             <ul className="md:flex space-x-12 hidden">
@@ -94,7 +94,7 @@ function NavBar() {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-white focus:outline-none focus:text-gray-300"
+              className="text-white focus:outline-none focus:text-secondary"
             >
               {isMenuOpen ? (
                 <FaXmark className="w-6 h-6 text-primary" />
@@ -107,12 +107,12 @@ function NavBar() {
       </nav>
 
       <div
-        className={`space-y-4 px-4 pt-24 pb-5 bg-secondary text-xl ${
+        className={`space-y-4 px-4 pt-24 pb-5 bg-primary text-[#be1212] text-xl border-2 border-[#be1212] rounded-2xl ${
           isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
         }`}
       >
         {navItems.map(({ link, path }) => (
-          <a key={link} href={path} className="block hover:text-gray-300">
+          <a key={link} href={path} className="block hover:text-secondary ">
             {link}
           </a>
         ))}
