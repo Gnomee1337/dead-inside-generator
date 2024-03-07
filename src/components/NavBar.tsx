@@ -20,15 +20,15 @@ function NavBar() {
   const navItems = [
     {
       link: "Nickname",
-      path: "nickname",
+      path: "#/nickname",
     },
     {
       link: "Avatar",
-      path: "avatar",
+      path: "#/avatar",
     },
     {
       link: "Codex",
-      path: "codex",
+      path: "#/codex",
     },
   ];
 
@@ -39,7 +39,7 @@ function NavBar() {
           <div className="flex space-x-14 items-center">
             {/* Logo */}
             <a
-              href="/"
+              href="#/nickname"
               className="text-2x1 font-bold flex items-center space-x-3 text-primary"
             >
               <img
